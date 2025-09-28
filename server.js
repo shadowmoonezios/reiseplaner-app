@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Datenbankverbindung
-mongoose.connect('mongodb://localhost:27017/reiseplaner', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/reiseplaner', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(() => console.log('Datenbank verbunden'))
   .catch(err => console.error(err));
 
