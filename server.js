@@ -10,7 +10,7 @@ app.use(express.json()); // Updated to use built-in express.json()
 
 // Database connection
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/reiseplaner';
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, retryWrites: true, /* Add following option to prevent deprecation warnings */ useFindAndModify: false })
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, retryWrites: true, /* Include option to prevent deprecation warnings */ useFindAndModify: false, useCreateIndex: true })
   .then(() => console.log('Database connected'))
   .catch(err => console.error(err));
 
