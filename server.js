@@ -1,13 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json()); // Updated to use built-in express.json()
 
 // Database connection
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/reiseplaner';
