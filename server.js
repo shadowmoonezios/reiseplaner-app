@@ -9,18 +9,18 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Datenbankverbindung
+// Database connection
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/reiseplaner';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, retryWrites: true })
-  .then(() => console.log('Datenbank verbunden'))
+  .then(() => console.log('Database connected'))
   .catch(err => console.error(err));
 
-// Routen
+// Routes
 app.get('/', (req, res) => {
-  res.send('Willkommen zur Reiseplaner-App API');
+  res.send('Welcome to the Reiseplaner app API');
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server läuft auf Port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
